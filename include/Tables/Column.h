@@ -76,9 +76,20 @@ namespace tables {
             }
         }
 
+        // Prints entire column
         void print() const override {
             int i;
             for (i = 0; i < columnVector.size() - 1; i++) {
+                std::cout << columnVector[i] << ", ";
+            }
+            std::cout << columnVector[i];
+            std::cout << "\n";
+        }
+
+        // Prints portion of column specified by start and end
+        void print(int start, int end) const override {
+            int i;
+            for (i = start; i < end - 1; i++) {
                 std::cout << columnVector[i] << ", ";
             }
             std::cout << columnVector[i];

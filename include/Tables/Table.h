@@ -443,6 +443,22 @@ namespace tables {
             }
         }
 
+        std::vector<ColumnBase*> getColumnVector() {
+            return table;
+        }
+
+        void setColumnVector(std::vector<ColumnBase*> columnVector) {
+            this->table = columnVector;
+        }
+
+        std::unordered_map<std::string, ColumnBase*> getColumnMap() {
+            return columnMap;
+        }
+
+        void setColumnMap(std::unordered_map<std::string, ColumnBase*> columnMap) {
+            this->columnMap = columnMap;
+        }
+
     private:
         std::vector<ColumnBase*> table;
         std::unordered_map<std::string, ColumnBase*> columnMap;
