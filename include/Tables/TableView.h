@@ -59,6 +59,14 @@ namespace tables {
             return tableP->at<T>(columnIndex, rowIndex);
         }
 
+        template <typename T>
+        int getCount(int columnIndex, T element) {
+            columnIndex += columnStart;
+            checkColumnIndex(columnIndex);
+
+            return tableP->getCount(columnIndex, element, rowStart, rowEnd);
+        }
+
         // Throws std::out_of_range if column index is out of range of the view
         void checkColumnIndex(int columnIndex) {
             if (columnIndex < columnStart || columnIndex >= columnEnd) {
@@ -92,6 +100,14 @@ namespace tables {
 
                 columnVector[i]->print(rowStart, rowEnd);
             }
+        }
+
+        int getWidth() {
+            return columnEnd - columnStart;
+        }
+
+        int getHeight() {
+            return rowEnd - rowStart;
         }
 
         tables::Table* getTableP() {

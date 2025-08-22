@@ -68,6 +68,28 @@ namespace tables {
             return sum;
         }
 
+        // Returns count of specified element in column
+        int getCount(T element) {
+            int count = 0;
+            for (int columnElement : columnVector) {
+                if (columnElement == element) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        // Returns count of specified element in column in the specified range
+        int getCount(T element, int start, int end) {
+            int count = 0;
+            for (int i = start; i < end; i++) {
+                if (columnVector[i] == element) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         // Function to normalize column data to a range between 0 and 1
         void normalize() {
             setFields();

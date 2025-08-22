@@ -244,6 +244,18 @@ namespace tables {
             return this->col<T>(title).sum(portion);
         }
 
+        // Returns count of specified element over the interval in the specified column using index
+        template <typename T>
+        int getCount(int columnIndex, T element, int start, int end) {
+            return this->col<T>(columnIndex).getCount(element, start, end);
+        }
+
+        // Returns count of specified element over the interval in the specified column using title
+        template <typename T>
+        int getCount(std::string columnTitle, T element, int start, int end) {
+            return this->col<T>(columnTitle).getCount(element, start, end);
+        }
+
         int height() {
             return table[0]->size();;
         }

@@ -17,5 +17,9 @@ int main() {
     view2.print();
     std::cout << view2.at<std::string>(1, 2) << "\n";
 
+    std::cout << "Count of 1.6 in residual sugar in view 1: " << view1.getCount<std::string>(0, "1.6") << "\n";
+    std::cout << "Hight and width of view 1: " << view1.getHeight() << "|" << view1.getWidth() << "\n";
+    std::cout << "Hight and width of view 2: " << view2.getHeight() << "|" << view2.getWidth() << "\n";
+
     return 0;
 }
