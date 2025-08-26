@@ -100,6 +100,10 @@ namespace tables {
 
         // Prints entire column
         void print() const override {
+            if (columnVector.empty()) {
+                return;
+            }
+            
             int i;
             for (i = 0; i < columnVector.size() - 1; i++) {
                 std::cout << columnVector[i] << ", ";
@@ -208,7 +212,7 @@ namespace tables {
         }
 
         void checkRange(int start, int n, std::string funcName) {
-            if (!(start >= 0 && n <= this->columnVector.size() && start < n)) {
+            if (!(start >= 0 && n <= this->columnVector.size() && start <= n)) {
                 std::string errMsg = "Column::" + funcName + ": Invalid range";
                 throw std::range_error(errMsg);
             }

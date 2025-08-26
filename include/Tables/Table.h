@@ -439,7 +439,7 @@ namespace tables {
         }
 
         void print() {
-            for (int i = 0; i  < table.size(); i++) {
+            for (int i = 0; i < table.size(); i++) {
                 std::unordered_map<std::string, ColumnBase*>::iterator it;
                 for (it = columnMap.begin(); it != columnMap.end(); ++it) {
                     if (it->second == table[i]) {
