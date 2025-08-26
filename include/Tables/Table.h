@@ -44,6 +44,18 @@ namespace tables {
         void add(std::string title, T data) {
             this->col<T>(title).add(data);
         }
+
+        // Adds a row to the table
+        template <typename T>
+        void addRow(std::vector<T> row) {
+            if (this->width() != row.size()) {
+                throw std::runtime_error("Table::addRow: Given row size must match table row size");
+            }
+
+            for (int i = 0; i < this->width(); i++) {
+                add(i, row[i]);
+            }
+        }
 /*
         // Function to access table column using square brackets
         template <typename T>
