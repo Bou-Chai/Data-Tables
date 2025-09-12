@@ -141,11 +141,11 @@ namespace tables {
 
         T findMostFrequent() {
             if (this->empty()) {
-                throw std::runtime_error("Column::findMostFrequent: Column must not be empty")
+                throw std::runtime_error("Column::findMostFrequent: Column must not be empty");
             }
 
             T mostFrequent = this->row(0);
-            int greatestFrequency;
+            int greatestFrequency = 0;
             std::unordered_map<T, int> frequencies;
 
             for (int i = 0; i < this->size(); i++) {
