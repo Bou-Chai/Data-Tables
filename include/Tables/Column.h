@@ -139,6 +139,26 @@ namespace tables {
             return majorityElement;
         }
 
+        T findMostFrequent() {
+            if (this->empty()) {
+                throw std::runtime_error("Column::findMostFrequent: Column must not be empty")
+            }
+
+            T mostFrequent = this->row(0);
+            int greatestFrequency;
+            std::unordered_map<T, int> frequencies;
+
+            for (int i = 0; i < this->size(); i++) {
+                T currentElement = this->row(i);
+                frequencies[currentElement]++;
+                if (frequencies[currentElement] > greatestFrequency) {
+                    mostFrequent = currentElement;
+                    greatestFrequency = frequencies[currentElement];
+                }
+            }
+            return mostFrequent;
+        }
+
         T getMin() {
             return min;
         }
